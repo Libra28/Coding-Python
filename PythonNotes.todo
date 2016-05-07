@@ -1,0 +1,100 @@
+Python的优势:
+  1.软件质量
+    1.1.可读性
+    1.2.一致性
+  2.开发效率
+  3.可移植性
+  4.标准库的支持
+  5.组件集成
+
+使用Python:
+  1.系统编程
+  2.用户图形接口
+  3.Internet脚本
+  4.组件集成
+  5.数据库编程
+  6.快速原型
+  7.数值计算和科学计算编程
+  8.游戏、图像、人工智能、XML、机器人等
+
+ Python技术上的优点:
+   1.面向对象
+   2.免费
+   3.可移植
+   4.功能强大
+     4.1.动态类型
+     4.2.自动内存管理
+     4.3.大型程序支持
+     4.4.内置对象类型
+     4.5.内置工具
+     4.6.库工具
+     4.7.第三方工具
+   5.可混合
+   6.简单易用
+   7.简单易学
+
+执行Python:
+  m.py（源代码）→m.pyc（字节码编译）→Python虚拟机（PVM）
+
+执行优化:
+  1.Psyco实时编译器
+  2.Shedskin C++转换器
+  3.冻结二进制文件
+
+交互模式注意事项:
+  1.交互模式下不需要缩进
+  2.空行结束符合语句（double enter）
+
+流重定向（stream redirection）:
+  % python script1.py  > saveit.txt    #输出流
+  % python script1.py  < saveit.txt    #输入流
+
+在系统提示模式下使用文件扩展名，模块导入时不使用文件扩展名:
+  python script1.py     #系统提示模式
+  import script1          #模块导入（script1必须处于工作目录下，sys.path）
+
+模块属性:
+  #1
+  import myfile                          #Run file：load module as a whole
+  print(myfile.title)                    #Use its attriblte names:'.' to qualify
+
+  #2
+  from myfile import title         #Run file：copy its names
+  print(title)                               #Use name directly:no need to qualify
+
+模块和命名空间:
+  1.一个模块最多只能被导入一次
+  2.每个模块是一个独立完备的变量包，即一个命名空间
+  3.一个模块文件不能读取其它文件定义的变量名，除非它显式地导入了那个文件
+  4.即使命名相同，不同文件的变量不会相互冲突
+
+模块重载:
+  from imp import reload
+  reload(script1)                                     #重载一个模块不会重载该模块导入的其它模块（不可传递性）
+
+exec运行模块文件:
+  exec(open('module.py').read())        #对于当前正在使用的变量有潜在的默认覆盖可能
+
+IDLE快捷键:
+  ALT+P                                                  #retrieves previous command matching what you have typed
+  ALT+N                                                  #retrieves next
+  CTRL+F6                                             #Restart Shell
+
+高级IDLE工具:
+  1.指向点击（point-and-click）程序调试
+  2.对象浏览器
+  3.IDLE调试
+  启动"Debug→Debuger"，"Run→Run Module"运行脚本，调试生效后，可以在文本编辑器的某一行点击右键，从而在代码中设置断点停止它的运行、显示变量值等。也可以在调试时查看程序的执行结果：在代码中执行该步时，当前代码行会被标注出来。
+  可以使用鼠标在错误信息文字上进行右键点击来快速地跳到发生错误的那一行代码
+
+  #107
+
+
+
+
+
+
+
+
+
+
