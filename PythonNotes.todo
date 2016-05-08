@@ -46,21 +46,21 @@ Python的优势:
   2.空行结束符合语句（double enter）
 
 流重定向（stream redirection）:
-  % python script1.py  > saveit.txt    #输出流
-  % python script1.py  < saveit.txt    #输入流
+  >>>% python script1.py  > saveit.txt    #输出流
+  >>>% python script1.py  < saveit.txt    #输入流
 
 在系统提示模式下使用文件扩展名，模块导入时不使用文件扩展名:
-  python script1.py     #系统提示模式
-  import script1          #模块导入（script1必须处于工作目录下，sys.path）
+  >>>python script1.py     #系统提示模式
+  >>>import script1          #模块导入（script1必须处于工作目录下，sys.path）
 
 模块属性:
   #1
-  import myfile                          #Run file：load module as a whole
-  print(myfile.title)                    #Use its attriblte names:'.' to qualify
+  >>>import myfile                          #Run file：load module as a whole
+  >>>print(myfile.title)                    #Use its attriblte names:'.' to qualify
 
   #2
-  from myfile import title         #Run file：copy its names
-  print(title)                               #Use name directly:no need to qualify
+  >>>from myfile import title         #Run file：copy its names
+  >>>print(title)                               #Use name directly:no need to qualify
 
 模块和命名空间:
   1.一个模块最多只能被导入一次
@@ -69,11 +69,11 @@ Python的优势:
   4.即使命名相同，不同文件的变量不会相互冲突
 
 模块重载:
-  from imp import reload
-  reload(script1)                                     #重载一个模块不会重载该模块导入的其它模块（不可传递性）
+  >>>from imp import reload
+  >>>reload(script1)                                     #重载一个模块不会重载该模块导入的其它模块（不可传递性）
 
 exec运行模块文件:
-  exec(open('module.py').read())        #对于当前正在使用的变量有潜在的默认覆盖可能
+  >>>exec(open('module.py').read())        #对于当前正在使用的变量有潜在的默认覆盖可能
 
 IDLE快捷键:
   ALT+P                                                  #retrieves previous command matching what you have typed
@@ -84,10 +84,178 @@ IDLE快捷键:
   1.指向点击（point-and-click）程序调试
   2.对象浏览器
   3.IDLE调试
-  启动"Debug→Debuger"，"Run→Run Module"运行脚本，调试生效后，可以在文本编辑器的某一行点击右键，从而在代码中设置断点停止它的运行、显示变量值等。也可以在调试时查看程序的执行结果：在代码中执行该步时，当前代码行会被标注出来。
+  启动"Debug→Debuger"，"Run→Run Module"运行脚本，调试生效后，可以在文本编辑器的某一行点击右键，从而在代码中设置断点停止它的运行、显示变量值等。也可以在调试时查看程序的执行结果：在代码中执行该步时，当前代码行会被标注出来
   可以使用鼠标在错误信息文字上进行右键点击来快速地跳到发生错误的那一行代码
 
-  #107
+Python全景:
+  1.程序由模块构成
+  2.模块包含语句
+  3.语句包含表达式
+  4.表达式建立并处理对象
+
+Python核心数据类型:
+  对象类型                              例子常量/创建
+  数字                                      1234,3.1415,3+4j,Decimal,Fraction
+  字符串                                  'spam',"guido's",b'a\xolc'
+  列表                                      [1,[2,'three'],4]
+  字典                                      {'food':'spam','taste':'yum'}
+  元组                                      (1,'spam',4,'U')
+  文件                                      myfile=open('eggs','r')
+  集合                                      set('abc'),{'a','b','c'}
+  其它类型                              类型、None、布尔型
+  编程单元类型                      函数、模块、类
+  与实现相关的类型··············编译的代码堆栈跟踪
+
+数学模块:
+  >>>import math
+  >>>math.pi
+  >>>math.sqrt(85)                                  #平方根
+  >>>import random
+  >>>random.random()                          #随机数
+  >>>random.choice([1,2,3,4])              #随机选择
+
+序列操作:
+  >>>S='Spam'
+  >>>len(S)                                              #Length
+  >>>S[-1]                                                #The last item from the end in S
+  >>>S[1:3]                                              #Slice of S from offsets 1 through 2(not 3)
+  >>>S+'xyz'                                            #Concatenation,S is unchanged
+  >>>S*8                                                 #Repetition
+
+不可变性:
+  数字、字符串和元组具有不可变性，不能通过对其某一位置进行赋值而改变字符串
+  >>>S[0]='z'                                           #Immutable ojects cannot be changed
+  ...error text omitted...
+  TypeError:'str' oject does not support item assignment
+  可以通过建立一个新的字符串并以同一个变量名对其进行赋值
+  >>>S='z'+S[1:]                                     #Run expressions to make new ojects
+
+类型特点方法:
+  >>>S.find('pa')                                     #Find the offset of a substring
+  1
+  >>>S.replace('pa','XYZ')                    #Replace occurrences of a substring with another
+  'SXYZm'
+  >>>S
+  'Spam'
+  >>>S.upper()                                       #Upper-case and lower-case conversions
+  >>>S.isalpha()                                     #Content tests:isalpha,isdigit,etc.
+  >>>line='aaa,bbb,ccccc,dd'
+  >>>line.split(',')                                    #Split on a delimiter into a list of substrings
+  ['aaa','bbb','ccccc','dd']
+  >>>line='aaa,bbb,ccccc,dd\n'
+  >>>line=line.rstrip()                            #Remove whitespace characters on the right side
+  >>>line
+  'aaa,bbb,ccccc,dd'
+  >>>'%s, eggs, and %s' % ('spam','SPAM!')                 #Formatting expression
+  'spam, eggs, and SPAM!'
+  >>>'{0}, eggs, and {1}'.format('spam','SPAM!')            #Formatting method
+  'spam, eggs, and SPAM!'
+  可作用于多种类型的通用型操作都是以内置函数或表达式形式出现[e.g. len(x),S[0]]
+  类型特定操作是以方法调用形式出现[e.g.aString.upper()]
+
+DIR and HELP:
+  >>>dir(S)
+  >>>help(S.replace)                            #Help on built-in function replace
+
+编写字符串的其它方法:
+  >>>S='A\nB\tC'                                      #\n is end-of-line,\t is tab
+  >>>print("""You cannot improve your past,
+  but you can improve your future.
+  Once time is wasted, life is wasted.""")
+  You cannot improve your past,
+  but you can improve your future.
+  Once time is wasted, life is wasted.
+
+模式匹配:
+  >>>import re
+  >>>match=re.match('Hello[\t]*(.*)world','Hello\tPython world')
+  >>>match.group(1)
+  'Python '
+  >>>match=re.match('/(.*)/(.*)/(.*)','/user/home/lumberjack')
+  >>>match.groups()
+  ('user','home','lumberjack')
+
+列表类型的特定操作:
+  >>>L=[123,'spam',1.23]                          #A list of three different-type objects
+  >>>L.append('NI')                                   #Growing:add object at end of list
+  >>>L
+  [123,'spam',1.23,'NI']
+  >>>L.pop(2)                                             #Shrinking:delete an item in the middle
+  1.23
+  >>>L                                                          #"del L[2]" deletes from a list too
+  [123,'spam','NI']
+  >>>L.insert(1,'SPAM!')                           #Growing:add object at L[1]
+  >>>L.remove(2)                                      #del L[2]
+  >>>L.sort()
+  >>>L.reverse()
+
+嵌套:
+  >>>M=[[1,2,3],
+                [4,5,6],
+                [7,8,9]]
+  >>>M[1][2]                                                                        #Get row 2,then get item 3 within the row
+  >>>[row[1] for row in M]                                                 #Collect the items in column 2
+  >>>[row[1] + 1 for row in M]                                          #Add 1 to each item in column 2
+  >>>[row[1] + 1 for row in M if row[1] % 2 == 0]          #Filter out odd items
+  [2,8]
+  >>>[M[i][i] for i in [0,1,2]]                                                #Collect a diagonal from matrix
+  [1,5,9]
+  >>>[c * 2 for c in 'spam']                                                 #Repeat characters in a string
+  ['ss','pp','aa','mm']
+  >>>G=(sum(row)for row in M)                                      #Create a genarator of row sums
+  >>>next(G)                                                                       #Run the iteration protocol
+  >>>list(map(sum,M))                                                      #Map sum over items in M
+  >>>{sum(row)for row in M}                                            #Create a set of row sums
+  >>>{i:sum(M[i])for i in range(3)}                                    #Create keyvalue table of row sums
+
+字典:
+  >>>D={'food':'Spam','quantity':4,'color':'pink'}
+  >>>D['food']                                                                      #Fetch value of key 'food'
+  >>>D['quantity']+=1                                                          #Add 1 to 'quantity' value
+  >>>value=D.get('x',0)                                                       #Index but with a default
+  >>>value=D['x'] if 'x' in D else 0                                      #if/else expression form
+
+元组:
+  >>>T=(1,2,3,4)                                                                  #A 4-item tuple
+  >>>T.index(4)                                                                   #Tuple method:4 appears at offset 3
+  >>>T.count(4)                                                                   #4 appears once
+  元组一旦创建后就不能改变，支持混合的类型和嵌套，但是不能增长或缩短
+
+文件:
+  >>>f=open('data.txt','w')                                                   #Make a new file in output mode
+  >>>f.write('Hello\n')                                                          #write strings of bytes to it
+  >>>f.close()                                                                       #Close to flush output buffers to disk
+  >>>f=open('data.txt')                                                        #'r' is the default processing mode
+  >>>f.read()                                                                        #Read entire file into a string
+  其它文件类工具：管道、先进先出队列（FIFO）、套接字、通过键访问文件、对象持久、基于描述符的文件、关系数据库和面向对象数据库接口等
+
+ 集合:
+   >>>X=set('spam')                                                            #Make a set out of a sequence
+   >>>Y={'h','a','m'}
+   >>>X,Y
+   ({'a','p','s','m'},{'a','h','m'})
+  >>>X&Y                                                                             #Intersection
+  >>>X|Y                                                                               #Union
+  >>>X-Y                                                                               #Difference
+
+数值类型:
+  >>>import decimal                                                           #Decimals:fixed precision
+  >>>d = decimal.Decimal('3.141')+1
+  >>>decimal.getcontext().prec=2
+  >>>decimal.Decimal('1.00')/decimal.Decimal('3.00')
+  Decimal('0.33')
+  >>>from fractions import Fraction                                  #Fractions:numerator+denominator
+  >>>f=Fraction(2,3)
+  >>>f+Fraction(1,2)
+  Fraction(7,6)
+
+用户定义的类:
+
+
+
+
+
+  #143
 
 
 
