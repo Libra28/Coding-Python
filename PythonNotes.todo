@@ -309,10 +309,17 @@ Python表达式操作符及程序:
   {...}                                                                 字典、集合、集合和字典解析
   操作符越靠后的优先级越高（除了幂运算是从右向左组合，其它是从左到右组合）
 
-变量和基本表达式:
+str和repr显示方式:
+  >>>repr(i)                                                      #Used by echoes:as-code form(default)
+  >>>str(i)                                                         #Used by print:user-friendly form
 
+floor&trunc除法:
+  >>>math.floor(-2.5)                                       #向下舍入
+  -3
+  >>>math.trunc(-2.5)                                      #无视正负的向下舍入
+  -2
 
-P158
+P165
 
 
 
