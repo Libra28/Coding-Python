@@ -112,6 +112,7 @@ Python核心数据类型:
   >>>math.sqrt(85)                                  #平方根
   >>>import random
   >>>random.random()                          #随机数
+  >>>random.randint(1,10)                    #区间内整数随机选择
   >>>random.choice([1,2,3,4])              #随机选择
 
 序列操作:
@@ -241,7 +242,7 @@ DIR and HELP:
 数值类型:
   >>>import decimal                                                           #Decimals:fixed precision
   >>>d = decimal.Decimal('3.141')+1
-  >>>decimal.getcontext().prec=2
+  >>>decimal.getcontext().prec=2                                    #指定全局精度
   >>>decimal.Decimal('1.00')/decimal.Decimal('3.00')
   Decimal('0.33')
   >>>from fractions import Fraction                                  #Fractions:numerator+denominator
@@ -319,7 +320,11 @@ floor&trunc除法:
   >>>math.trunc(-2.5)                                      #无视正负的向下舍入
   -2
 
-P165
+位操作:
+  1 | 2                                                                 #Bitwise OR:0011
+  1 & 1                                                               #Bitwise AND:0001
+
+P179
 
 
 
