@@ -324,7 +324,36 @@ floor&trunc除法:
   1 | 2                                                                 #Bitwise OR:0011
   1 & 1                                                               #Bitwise AND:0001
 
-P179
+String Methods:
+  str.capitalize()
+  str.casefold()
+  str.center(width[, fillchar])
+  str.count(sub[, start[, end]])
+  str.endswith(suffix[, start[, end]])
+  str.encode(encoding="utf-8", errors="strict")
+  str.expandtabs(tabsize=8)
+  str.find(sub[, start[, end]])
+  str.format(*args, **kwargs)
+  str.format_map(mapping)
+  str.index(sub[, start[, end]])
+  str.join(iterable)
+  str.ljust(width[, fillchar])
+  str.lower()
+  str.lstrip([chars])
+  static str.maketrans(x[, y[, z]])
+  str.translate(table)
+  str.partition(sep)
+  str.replace(old, new[, count])
+  str.split(sep=None, maxsplit=-1)
+  str.strip([chars])
+  str.swapcase()
+  str.title()
+  str.upper()
+  str.zfill(width)
+
+
+
+P228
 
 
 
