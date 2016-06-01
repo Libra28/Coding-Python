@@ -14,8 +14,7 @@ def get_file_token():
     else:
         write_token()
 
-    access_token = r['result']['access_token']
-    return access_token
+    return r['result']['access_token']
 
 def write_token():
     global r
@@ -39,8 +38,8 @@ def get_token():
     grant_type = 'client_credential'
     appkey = '658077'
     secret = '9a8f69ba222e7e0afc97d27e7c78ec26'
-    weidian_url = 'https://api.vdian.com/token?grant_type=%s&appkey=%s&secret=%s' % (grant_type,appkey,secret)
-    return json.loads(requests.get(weidian_url).text)
+    url = 'https://api.vdian.com/token?grant_type=%s&appkey=%s&secret=%s' % (grant_type,appkey,secret)
+    return json.loads(requests.get(url).text)
 
 if __name__ == '__main__':
     print get_file_token()
