@@ -2,7 +2,12 @@
 """
 获取access_token并写入token.txt
 """
-import os,time,requests,json,pickle
+import os
+import time
+import requests
+import json
+import pickle
+
 
 def get_file_token():
     if os.path.exists('token.txt'):
@@ -16,16 +21,19 @@ def get_file_token():
 
     return r['result']['access_token']
 
+
 def write_token():
     global r
     r = get_token()
-    with open('token.txt','wb') as file:
-        pickle.dump(r,file)
+    with open('token.txt', 'wb') as file:
+        pickle.dump(r, file)
+
 
 def load_token():
-    with open('token.txt','rb') as file:
+    with open('token.txt', 'rb') as file:
         global r
         r = pickle.load(file)
+
 
 def exprise_token():
     expire_in = r['result']['expire_in']
@@ -34,11 +42,13 @@ def exprise_token():
     else:
         False
 
+
 def get_token():
     grant_type = 'client_credential'
     appkey = '658077'
     secret = '9a8f69ba222e7e0afc97d27e7c78ec26'
-    url = 'https://api.vdian.com/token?grant_type=%s&appkey=%s&secret=%s' % (grant_type,appkey,secret)
+    url = 'https://api.vdian.com/token?grant_type=%s&appkey=%s&secret=%s' % (
+        grant_type, appkey, secret)
     return json.loads(requests.get(url).text)
 
 if __name__ == '__main__':
