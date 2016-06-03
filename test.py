@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*
 """
-
+获取指定商品设置和取消折扣URL
 """
 import requests,json,time
 from get_token import get_file_token

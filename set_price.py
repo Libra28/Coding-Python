@@ -25,15 +25,4 @@ for item in items:
         print r.encode('gb2312')
 
 #itemid = 1865348296
-"""
-1865347191
 
-{"status":{"status_code":10008,"status_reason":"非法请求(这个商品已经创建折扣了-2) "}}
-1865347192
-
-{"status":{"status_code":10008,"status_reason":"非法请求(这个商品已经创建折扣了-2) "}}
-1865347194
-
-{"status":{"status_code":10008,"status_reason":"非法请求(这个商品已经创建折扣了-2) "}}
-[Finished in 229.3s]
-"""
