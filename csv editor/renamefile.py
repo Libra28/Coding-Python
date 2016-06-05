@@ -1,4 +1,8 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# @Date    : 2016-06-02 20:37:16
+# @Author  : Libra (69066656@qq.com)
+# @Link    : https://github.com/Libra28
 import csv
 import re
 import os
